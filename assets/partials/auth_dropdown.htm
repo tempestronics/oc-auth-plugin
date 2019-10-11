@@ -1,0 +1,26 @@
+<?php
+    $availableAuthMechanisms = $column->config['options'];
+    $selectedOption = array_get($record->extras, 'auth_mechanism', 'open');
+?>
+<style>
+  table.table.data tbody tr.rowlink:hover td.list-cell-name-auth_mechanism span {
+      color: #000;
+  }
+</style>
+<select
+    id="<?= $column->getId() ?>"
+    name="auth_mechanisms[<?= $record->id ?>]"
+    data-request="onAuthMechanism"
+    data-request-data="id:<?= $record->id ?>"
+    class="form-control custom-select select-no-search icon-nothing"
+    >
+    <?php foreach ($availableAuthMechanisms as $value => $option): ?>
+        <?php
+            if (!is_array($option)) $option = [$option];
+        ?>
+        <option
+            <?= $selectedOption == $value ? 'selected="selected"' : '' ?>
+            value="<?= $value ?>"
+        ><?= e(trans($option[0])) ?></option>
+    <?php endforeach ?>
+</select>
