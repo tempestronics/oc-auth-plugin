@@ -38,18 +38,18 @@ class AuthManager extends LaravelAuthManager
         // TODO: Move this to a web UI configurator.
         app()['config']['auth'] = [
             'defaults' => [
-                'guard' => 'api',
+                'guard'     => 'api',
                 'passwords' => 'user'
             ],
             'providers' => [
                 'user' => [
                     'driver' => 'eloquent',
-                    'model' => \Backend\Models\User::class,
+                    'model'  => \Backend\Models\User::class,
                 ]
             ],
             'guards' => [
                 'api' => [
-                  'driver' => 'passport',
+                  'driver'   => 'passport',
                   'provider' => 'user',
                 ]
             ]

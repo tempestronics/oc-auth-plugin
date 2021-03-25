@@ -27,8 +27,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'Auth',
-            'description' => 'Auth plugin for OctoberCMS',
+            'name'        => 'mohsin.auth::lang.plugin.name',
+            'description' => 'mohsin.auth::lang.plugin.description',
             'author'      => 'Saifur Rahman Mohsin',
             'icon'        => 'icon-lock'
         ];
@@ -53,7 +53,7 @@ class Plugin extends PluginBase
         ApiSettingsController::extendListColumns(function ($list, $model) {
             $list->addColumns([
                 'auth_mechanism' => [
-                    'label' => 'Auth Mechanism',
+                    'label' => 'mohsin.auth::lang.settings.auth_mechanism_label',
                     'type'  => 'partial',
                     'path'  => '$/mohsin/auth/assets/partials/auth_dropdown.htm',
                     'options' => AuthManager::instance()->getAvailableAuthMechanisms()
@@ -77,7 +77,7 @@ class Plugin extends PluginBase
     {
         return [
             'open' => [
-              'name'     => 'Open',
+              'name'     => 'mohsin.auth::lang.mechanisms.open.label',
               'callback' => function ($request, $next) {
                   return $next($request);
               }
