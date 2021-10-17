@@ -10,7 +10,7 @@ return [
     ],
     'mechanisms' => [
         'open' => [
-            'label' => 'खोलना'
+            'label' => 'खुला'
         ]
     ]
 ];
